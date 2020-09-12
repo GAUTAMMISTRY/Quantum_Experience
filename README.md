@@ -1,11 +1,11 @@
 # Quantum_Experience
 
-##example of quantum cryptography
+## example of quantum cryptography
 
 This third exercise focuses on BB84, a cryptography protocol developed in 1984 by one of our most famous IBMers, Charles Bennett, together with his colleague Gilles Brassard. This scheme was realized five years later in the first demonstration of quantum key distribution by Bennett and colleague John Smolin at IBM [C. H. Bennett, F. Bessette, G. Brassard, L. Salvail, and J. Smolin, J. of Cryptography 5, 3 (1992) ]. Both Charles and John are still members of the IBM Quantum team.
 
 
-##BB84 protocol
+## BB84 protocol
 
 Let's walk through the steps of the BB84 protocol:
 
@@ -25,3 +25,11 @@ in a table.
 
 Next, Alice and Bob compare their basis bits 𝑏𝑖
 and 𝑏̃ 𝑖. Whenever 𝑏𝑖≠𝑏̃ 𝑖, Bob measured in a different basis than Alice's qubit was encoded in, so he gets each outcome with probability 12. Alice and Bob therefore discard all key bits corresponding to these basis bits. If 𝑏𝑖=𝑏̃ 𝑖, however, they prepared and measured the qubit in the same basis, so (unless someone eavesdropped) Bob will get the key bit that Alice encoded, 𝑘̃ 𝑖=𝑘𝑖. These outcomes then compose the key.
+
+
+
+
+## Message encrpytion
+
+Once a secret key is distributed, Alice can encrypt her message by using the so-called one-time pad technique: she simply adds the key bits on top of her secret message bits that she wants to send. Using the example above, her key is key=‘0110‘
+. If her secret message bit string is 𝑚=‘1100‘, the encrypted message will be 𝑐=𝑚⊕keymod2=‘1010‘. Bob can then decrypt the message by adding his key on that encrypted message, 𝑚=𝑐⊕keymod2.
